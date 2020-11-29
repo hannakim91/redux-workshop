@@ -7,6 +7,7 @@ export const todos = (state = [], action) => {
   }
 }
 
+// reducers make up the store (global state) - can use `combineReducers` (in reducers/index.js to have multiple pieces of state in store)
 // reducers = functions that take 2 args
   // 1. an init/default value (like React component state)
   // 2. an action
