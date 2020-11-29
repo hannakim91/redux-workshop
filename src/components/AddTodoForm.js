@@ -42,7 +42,8 @@ export default connect(null, mapDispatchToProps)(AddTodoForm);
   // component can receive props.dispatch to dispatch action
   // connect can accept arg called mapDispatchToProps to create functions that dispatch when called 
     // passes functions as prop to component
-  // mapDispatchToProps function - created so that it returns an object (dispatch actions to the store)
+    // null as first arg b/c form doesn't need access to store - action adds todo to store
+    // mapDispatchToProps function - created so that it returns an object (dispatch actions to the store)
   // dispatch function from Redux store: sends action to reducers -> create state changes (global store)
     // call store.dispatch to dispatch option and trigger state change
   // passes methods down to component as props (in submitForm)
