@@ -3,8 +3,8 @@ export const addToDo = todo => ({
   todo
 });
 
-export const isCompleted = todo => ({
-  type: 'MARK_COMPLETE',
+export const markCompleted = todo => ({
+  type: 'MARK_COMPLETED',
   todo
 });
 
