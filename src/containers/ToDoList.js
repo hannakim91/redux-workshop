@@ -7,7 +7,7 @@ const ToDoList = ({todos}) => {
   return (
     <>
       <ul>
-
+      {todos && todos.map(item => <li>{item.todo}</li>)}
       </ul>
     </>
   )
