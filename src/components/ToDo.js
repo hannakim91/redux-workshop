@@ -1,9 +1,11 @@
 import React from 'react';
 
 const ToDo = ( { id, todo, completed }) => {
-  console.log(this)
+  console.log(completed)
   return (
-    <li>{todo}</li>
+    <li>
+      {todo}:{`${completed}`}
+    </li>
   )
 }
 
