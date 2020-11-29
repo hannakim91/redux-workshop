@@ -33,4 +33,16 @@ class AddTodoForm extends Component {
   }
 }
 
-export default AddTodoForm;
+const mapDispatchToProps = dispatch => ({
+  addToDo: text => dispatch( addToDo(text) )
+})
+export default connect(null, mapDispatchToProps)(AddTodoForm);
+
+// React Redux components do not access store directly - indirectly through `connect`
+  // component can receive props.dispatch to dispatch action
+  // connect can accept arg called mapDispatchToProps to create functions that dispatch when called 
+    // passes functions as prop to component
+  // mapDispatchToProps function - created so that it returns an object (dispatch actions to the store)
+  // dispatch function from Redux store: sends action to reducers -> create state changes (global store)
+    // call store.dispatch to dispatch option and trigger state change
+  // passes methods down to component as props (in submitForm)
