@@ -16,4 +16,8 @@ const ToDoList = ({todos}) => {
 const mapStateToProps = state => ({
   todos: state.todos
 });
- export default connect(mapStateToProps)(ToDoList)l
+ export default connect(mapStateToProps)(ToDoList)
+
+ // mapStateToPRops - selecting part of data from store (state.todos) that the connected component (ToDoList) needs
+  // invoked every time the store is updated
+  // refered to as 'state' instead of 'store' because you're looking for 'state value' NOT 'store instance'
