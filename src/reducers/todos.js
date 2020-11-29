@@ -13,3 +13,4 @@ export const todos = (state = [], action) => {
 // fired when app launches - gives default values to store (global state)
 // ** all reducers fire when one is invoked -- why you need to give an initial value**
 // formatted as a condition: switch statement - default = initial state, case for what return value to change in global state - can be one other condition/case or can be multiple 
+// ADD_TODO == addIdea function in basic react app
