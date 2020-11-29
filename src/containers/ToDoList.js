@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ToDo from '../components/ToDo';
+import { markCompleted } from '../actions';
 
 const ToDoList = ({ todos }) => {
   const displayToDos = todos.map(item => {
@@ -27,6 +28,8 @@ const mapStateToProps = state => ({
 });
  export default connect(mapStateToProps)(ToDoList)
 
- // mapStateToPRops - selecting part of data from store (state.todos) that the connected component (ToDoList) needs
+ // mapStateToProps - selecting part of data from store (state.todos) that the connected component (ToDoList) needs
   // invoked every time the store is updated
   // refered to as 'state' instead of 'store' because you're looking for 'state value' NOT 'store instance'
+
+  // to add completed functionality - need to know completed status of an item that is clicked on

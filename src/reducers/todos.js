@@ -2,6 +2,10 @@ export const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [...state, { id: Date.now(), todo: action.todo, completed: false }];
+    case 'MARK_COMPLETED':
+      // const list = state.filter(item => item.id !== todo.id)
+      // return list
+      return ['test']
     default:
       return state;
   }
