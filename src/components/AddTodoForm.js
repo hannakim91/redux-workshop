@@ -47,3 +47,15 @@ export default connect(null, mapDispatchToProps)(AddTodoForm);
   // dispatch function from Redux store: sends action to reducers -> create state changes (global store)
     // call store.dispatch to dispatch option and trigger state change
   // passes methods down to component as props (in submitForm)
+
+
+// separating component types: reusability/separation of concerns
+  // container component
+    // manage data (state) - aware of redux/subscribe redux state/dispatch to redux actions/functional aspect of app
+    // often pass data to child components
+    // syntax: wrap component with `connect`
+    // organization purposes: have a containers directory
+
+  // presentational component
+    // deal with how things look - read data from props, invoke callbacks on props, unaware of redux
+    // often stateless
