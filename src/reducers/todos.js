@@ -1,3 +1,12 @@
+export const todos = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [...state, { id: Date.now(), todo: action.todo, completed: false }];
+    default:
+      return state;
+  }
+}
+
 // reducers = functions that take 2 args
   // 1. an init/default value (like React component state)
   // 2. an action
