@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { addToDo } from '../actions';
+import { connect } from 'react-redux';
 
 class AddTodoForm extends Component {
   constructor(props) {
