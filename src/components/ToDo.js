@@ -2,22 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { markCompleted } from '../actions';
 
-const ToDo = ( { id, todo, completed }) => {
-  const toggleComplete = () => {
-    markCompleted(id)
-    // change complete from false to true in global state/store
-    // mark UI to crossed out
-  }
+const ToDo = ( { id, todo, completed, markCompleted }) => {
   return (
-    <li>
-      {todo}:{`${completed}`}
-      <button onClick={toggleComplete()}>Mark Complete</button>
+    <li
+      className={completed ? 'completed' : 'not-completed'}
+      onClick={markCompleted(id)}
+    >
+      {todo}
     </li>
   )
 }
 
 const mapDispatchToProps = dispatch => ({
-  markCompleted: item => dispatch ( markCompleted(item) )
+  markCompleted: id => dispatch ( markCompleted(id) )
 })
 export default connect(null, mapDispatchToProps)(ToDo);
 
