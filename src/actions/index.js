@@ -14,7 +14,7 @@ export const markCompleted = id => ({
 // })
 
 export const filterTasks = isCompleted => ({
-  type: 'SHOW_COMPLETED',
+  type: 'SHOW_FILTERED',
   isCompleted
 })
 
