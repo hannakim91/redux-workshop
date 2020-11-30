@@ -9,8 +9,8 @@ export const todos = (state = [], action) => {
         }
         return todo;
       });
-    case 'SHOW_FILTERED':
-      return state.filter(todo => todo.completed === action.isCompleted);
+    // case 'SHOW_FILTERED':
+    //   return state.filter(todo => todo.completed === action.isCompleted);
     // case 'SHOW_ALL':
     //   return state;
     default:

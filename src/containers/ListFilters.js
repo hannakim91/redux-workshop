@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { filterTasks } from '../actions';
 
-const ListFilter = ({ filterTasks }) => {
+const ListFilter = ({ todos }) => {
   return (
     <>
       <h3>Filter Your List</h3>
@@ -13,8 +12,8 @@ const ListFilter = ({ filterTasks }) => {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  filterTasks: bool => dispatch( filterTasks(bool) )
+const mapStateToProps = state => ({
+  todos: state.todos
 })
 
-export default connect(null, mapDispatchToProps)(ListFilter);
+export default connect(mapStateToProps)(ListFilters)
