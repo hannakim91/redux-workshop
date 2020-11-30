@@ -8,7 +8,13 @@ export const todos = (state = [], action) => {
           todo.completed = !todo.completed;
         }
         return todo;
-      })
+      });
+    case 'SHOW_ACTIVE':
+      return state.filter(todo => todo.completed === false);
+    case 'SHOW_COMPLETED':
+      return state.filter(todo => todo.completed === true);
+    case 'SHOW_ALL':
+      return state;
     default:
       return state;
   }
