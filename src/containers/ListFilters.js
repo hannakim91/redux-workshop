@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ListFilter = ({ todos }) => {
+const ListFilters = ({ todos }) => {
   return (
     <>
       <h3>Filter Your List</h3>
