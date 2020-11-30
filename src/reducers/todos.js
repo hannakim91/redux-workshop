@@ -3,8 +3,12 @@ export const todos = (state = [], action) => {
     case 'ADD_TODO':
       return [...state, { id: Date.now(), todo: action.todo, completed: false }];
     case 'MARK_COMPLETED':
-      const list = state.find(item => item.id !== todo)
-      return [...list]
+      return state.map(todo => {
+        if (action.id === todo.id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
     default:
       return state;
   }
