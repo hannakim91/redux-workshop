@@ -17,7 +17,13 @@ const ToDoList = ({ todos }) => {
       <h2>To Do List</h2>
       <ul>
       {displayToDos}
-      </ul>
+      </ul>    
+      <section>
+        <h3>Filter Your List</h3>
+        <button>Show All Tasks</button>
+        <button>Show Active</button>
+        <button>Show Completed</button>
+      </section>
     </>
   )
 };
