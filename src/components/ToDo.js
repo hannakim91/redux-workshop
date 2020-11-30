@@ -6,7 +6,7 @@ const ToDo = ( { id, todo, completed, markCompleted }) => {
   return (
     <li
       className={completed ? 'completed' : 'not-completed'}
-      onClick={markCompleted(id)}
+      onClick={() => markCompleted(id)}
     >
       {todo}
     </li>
