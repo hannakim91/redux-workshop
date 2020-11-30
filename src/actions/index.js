@@ -8,4 +8,8 @@ export const markCompleted = id => ({
   id
 });
 
+export const showAllTasks = id => ({
+  type: 'SHOW_ALL',
+  id
+})
 // `actions` are created by `action creator` function - pass in an argument (payload) that will change state in some way (in this case add a to-do item to array of to do's)
