@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import { todos } from './todos';
+import { displayList } from './displayList';
 
 const rootReducer = combineReducers({
   todos,
+  displayList,
 });
 
 export default rootReducer;

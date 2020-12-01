@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ToDo from '../components/ToDo';
 
 const ToDoList = ({ todos }) => {
-  const displayToDos = todos.map(item => {
+  let allToDos = todos.map(item => {
     return (
       <ToDo
         {...item}
@@ -12,17 +12,31 @@ const ToDoList = ({ todos }) => {
     )
   })
 
+  const displayFiltered = bool => {
+    if (!bool) {
+      allToDos = allToDos
+    } else {
+      allToDos = allToDos.filter(todo => todo.completed === bool)
+    }
+  }
+
   return (
     <>
       <h2>To Do List</h2>
       <ul>
-      {displayToDos}
+      {allToDos}
       </ul>    
       <section>
         <h3>Filter Your List</h3>
-        <button>Show All Tasks</button>
-        <button>Show Active</button>
-        <button>Show Completed</button>
+        <button
+          onClick={() => displayFiltered()}
+        >Show All Tasks</button>
+        <button
+          onClick={() => displayFiltered(false)}
+        >Show Active</button>
+        <button
+        onClick={() => displayFiltered(true)}
+        >Show Completed</button>
       </section>
     </>
   )
