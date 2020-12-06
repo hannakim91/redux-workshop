@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import ToDo from '../components/ToDo';
 
 const ToDoList = ({ todos }) => {
-  let allToDos = todos.map(item => {
-    return (
-      <ToDo
-        {...item}
-        key={item.id}
-      />
-    )
-  })
 
-  const displayFiltered = bool => {
-    if (!bool) {
-      allToDos = allToDos
-    } else {
-      allToDos = allToDos.filter(todo => todo.completed === bool)
-    }
+  const [filter, setFilter] = useState('all')
+
+  let filteredData = []
+  if (filter === 'all') {
+    filteredData = todos
+  } else if (filter === 'active') {
+    filteredData = todos.filter(todo => todo.completed === false)
+  } else if (filter === 'completed') {
+    filteredData = todos.filter(todo => todo.completed === true)
   }
+
+  let allToDos = filteredData.map(item => {
+      return (
+        <ToDo
+          {...item}
+          key={item.id}
+        />
+      )
+  })
 
   return (
     <>
@@ -29,13 +33,14 @@ const ToDoList = ({ todos }) => {
       <section>
         <h3>Filter Your List</h3>
         <button
-          onClick={() => displayFiltered()}
+          onClick={() => setFilter('all')}
+          //need anon function to tell it to only fire when button clicks -- without it, it fires every time it renders, not just when it is clicked
         >Show All Tasks</button>
         <button
-          onClick={() => displayFiltered(false)}
+          onClick={() => setFilter('active')}
         >Show Active</button>
         <button
-        onClick={() => displayFiltered(true)}
+        onClick={() => setFilter('completed')}
         >Show Completed</button>
       </section>
     </>
@@ -47,7 +52,18 @@ const mapStateToProps = state => ({
 });
  export default connect(mapStateToProps)(ToDoList)
 
- // mapStateToProps - selecting part of data from store (state.todos) that the connected component (ToDoList) needs
+// mapStateToProps - selecting part of data from store (state.todos) that the connected component (ToDoList) needs
   // invoked every time the store is updated
   // refered to as 'state' instead of 'store' because you're looking for 'state value' NOT 'store instance'
+
+
+//react only re-renders automatically if a prop is altered
+  // ie, resetting variable inside component won't trigger a re-render (allToDos)
+  // option 1: useEffect could re-render but back to initial allToDo not the buttonclick function
+
+// data flows through filter state same everytime (all/complete/incomlete)
+// 1. comp renders
+// 2. take todos from store and apply default (no filter/all) - render allToDos
+// if filter updated via button click
+  // update filter -> triggers re-render
 
