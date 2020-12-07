@@ -15,6 +15,9 @@ const ToDoList = ({ todos }) => {
     filteredData = todos.filter(todo => todo.completed === true)
   }
 
+  // might be able to refactor this - run through a function instead? 
+  // take filter, take data -> filter data and display
+
   let allToDos = filteredData.map(item => {
       return (
         <ToDo
